@@ -205,7 +205,7 @@ public class MakeTabixIndex {
 			this.sqliteFile= Utils.createTempFile(".asciigenome.", ".tmp.sqlite", true);
 			conn= this.createSQLiteDb(this.sqliteFile, "data");
 		} catch(SQLiteException e){
-			this.sqliteFile= File.createTempFile(".asciigenome.", ".tmp.sqlite");
+			this.sqliteFile= Files.createTempFile(".asciigenome.", ".tmp.sqlite").toFile();
 			this.sqliteFile.deleteOnExit();
 			conn= this.createSQLiteDb(this.sqliteFile, "data");
 		}

@@ -128,10 +128,10 @@ public class Utils {
 	public static File createTempFile(String prefix, String suffix, boolean deleteOnExit){
 		File tmp = null;
 		try{
-			tmp= File.createTempFile(prefix, suffix, new File(System.getProperty("user.dir")));
+			tmp= Files.createTempFile(new File(System.getProperty("user.dir")).toPath(), prefix, suffix).toFile();
 		} catch(IOException e){
 			try {
-				tmp= File.createTempFile(prefix, suffix);
+				tmp= Files.createTempFile(prefix, suffix).toFile();
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
